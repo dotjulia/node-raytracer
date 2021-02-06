@@ -1,0 +1,17 @@
+{
+  "name": "node-raytracer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "gpu.js": "^2.10.5",
+    "jimp": "^0.16.1"
+  }
+}
