@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f490b2e5-17a2-4f5b-b671-27397e6ba83a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Camera.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HittableList.js" beforeDir="false" afterPath="$PROJECT_DIR$/HittableList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RenderEngine.js" beforeDir="false" afterPath="$PROJECT_DIR$/RenderEngine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RenderPixelWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/RenderPixelWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/World.js" beforeDir="false" afterPath="$PROJECT_DIR$/World.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.png" beforeDir="false" afterPath="$PROJECT_DIR$/test3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vec3.js" beforeDir="false" afterPath="$PROJECT_DIR$/vec3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sphere.js" beforeDir="false" afterPath="$PROJECT_DIR$/Sphere.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +74,8 @@
       <workItem from="1612615243463" duration="4291000" />
       <workItem from="1612646630730" duration="3093000" />
       <workItem from="1612657027423" duration="532000" />
-      <workItem from="1612700344383" duration="4727000" />
+      <workItem from="1612700344383" duration="4795000" />
+      <workItem from="1612705677611" duration="11000" />
     </task>
     <servers />
   </component>

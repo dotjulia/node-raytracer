@@ -1,4 +1,4 @@
-const Hittable = require('./hittable');
+const Hittable = require('./Hittable');
 module.exports = class Sphere extends Hittable{
     /**
      * @param {Vector3} center
