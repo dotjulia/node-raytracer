@@ -39,7 +39,7 @@ module.exports = class HittableList extends Hittable{
 
         for(const object of this.objects){
             const tmpRec = object.hit(ray, t_min, closest);
-            if (tmpRec.hit) {
+            if (tmpRec.hit /*&& closest > tmpRec.t*/) {
                 closest = tmpRec.t;
                 finalRec = tmpRec;
             }

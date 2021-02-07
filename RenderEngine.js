@@ -1,6 +1,7 @@
 const Color = require('./color.js');
 const Ray = require('./ray.js');
 const Vector3 = require('./vec3.js');
+const Camera = require('./Camera');
 
 const { Worker } = require('worker_threads');
 
@@ -8,21 +9,22 @@ const { Worker } = require('worker_threads');
  * @returns Number - render time
  */
 module.exports = async (out) => {
-    const aspect_ratio = out.width / out.height;
-    const viewport_height = 2.0;
-    const viewport_width = aspect_ratio * viewport_height;
-    const focal_length = 1.0;
-
-    const origin = new Vector3(0,0,0);
-    const horizontal = new Vector3(viewport_width, 0, 0);
-    const vertical = new Vector3(0, viewport_height, 0);
-
-    const camera = {
-        origin,
-        horizontal,
-        vertical,
-        lower_left_corner: origin.minus(horizontal.divN(2)).minus(vertical.divN(2)).minus(new Vector3(0, 0, focal_length)),
-    };
+    // const aspect_ratio = out.width / out.height;
+    // const viewport_height = 2.0;
+    // const viewport_width = aspect_ratio * viewport_height;
+    // const focal_length = 1.0;
+    //
+    // const origin = new Vector3(0,0,0);
+    // const horizontal = new Vector3(viewport_width, 0, 0);
+    // const vertical = new Vector3(0, viewport_height, 0);
+    //
+    // const camera = {
+    //     origin,
+    //     horizontal,
+    //     vertical,
+    //     lower_left_corner: origin.minus(horizontal.divN(2)).minus(vertical.divN(2)).minus(new Vector3(0, 0, focal_length)),
+    // };
+    const camera = new Camera(out.width, out.height, 100);
     const start = new Date();
     const pixelRenderChunks = [];
     for(let y = 0; y < out.height; y++) {
@@ -33,7 +35,7 @@ module.exports = async (out) => {
         pixelRenderChunks.push({pixels: pixelRow, id: y});
     }
     let chunksFinished = 0;
-    initWorkerThreads(8, (chunk) => {
+    initWorkerThreads(32, (chunk) => {
         out.pushPixelRow(chunk.id, chunk.pixels);
         chunksFinished++;
     });
@@ -45,7 +47,7 @@ module.exports = async (out) => {
         return chunksFinished >= out.height;
     };
     finishCondition.toProgressString = () => `${chunksFinished}/${out.height}`;
-    await waitForWorkers(finishCondition, 100);
+    await waitForWorkers(finishCondition, 1000);
 
     terminateWorkerThreads();
     return new Date() - start;

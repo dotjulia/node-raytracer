@@ -1,3 +1,5 @@
+const { randomNumber } = require('./Util');
+
 module.exports = class Vector3 {
     x = 0;
     y = 0;
@@ -6,6 +8,21 @@ module.exports = class Vector3 {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    static random(min, max) {
+        if(min === undefined || max === undefined) {
+            return new Vector3(randomNumber(), randomNumber(), randomNumber());
+        } else {
+            return new Vector3(randomNumber(min, max), randomNumber(min, max), randomNumber(min, max));
+        }
+    }
+
+    static randomInUnitSphere() {
+        while(true) {
+            const p = Vector3.random(-1, 1);
+            if(p.length_squared() < 1) return p;
+        }
     }
 
     assignFromObj(obj) {
