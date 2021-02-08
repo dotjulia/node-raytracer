@@ -3,11 +3,13 @@ module.exports = class Sphere extends Hittable{
     /**
      * @param {Vector3} center
      * @param {number} radius
+     * @param {Material} material
      */
-    constructor(center, radius) {
+    constructor(center, radius, material) {
         super();
         this.center = center;
         this.radius = radius;
+        this.material = material;
     }
 
     /**
@@ -39,6 +41,7 @@ module.exports = class Sphere extends Hittable{
         return this.setFaceNormal(ray, outwardNormal, {
             hit: true,
             point: ray.at(root),
+            material: this.material,
             t: root,
         });
     }

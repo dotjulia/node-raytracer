@@ -4,8 +4,8 @@ const colors = require('colors');
 
 
 const main = async () => {
-    const image_width = 1920;
-    const image_height = 1080;
+    const image_width = 400;
+    const image_height = 300;
     const out = new PNGOutput(image_width, image_height, 4);
 
     await out.init();

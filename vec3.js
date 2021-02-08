@@ -25,6 +25,29 @@ module.exports = class Vector3 {
         }
     }
 
+    static randomUnitVector() {
+        return Vector3.randomInUnitSphere().unitVector();
+    }
+
+    static randomInHemisphere(normal) {
+        const inUnitSphere = Vector3.randomInUnitSphere();
+        if(inUnitSphere.dot(normal) > 0.0) return inUnitSphere;
+        else return inUnitSphere.mulN(-1);
+    }
+
+    nearZero() {
+        const s = 1e-8;
+        return (Math.abs(this.x) < s) && (Math.abs(this.y) < s) && (Math.abs(this.z) < s);
+    }
+
+    /**
+     * @params {Vector3} n - normal vector
+     * @returns {Vector3}
+     */
+    reflect(n) {
+        return this.minus(n.mulN(2).mulN(this.dot(n)));
+    }
+
     assignFromObj(obj) {
         this.x = obj.x;
         this.y = obj.y;

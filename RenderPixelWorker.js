@@ -10,18 +10,18 @@ const { clamp, randomNumber } = require('./Util');
 
 function ray_color(ray, depth) {
     //const t = testSphere.hit(ray);
-    const hRec = world.worldHittableList.hit(ray, 0, Number.POSITIVE_INFINITY);
+    const hRec = world.worldHittableList.hit(ray, 0.001, Number.POSITIVE_INFINITY);
     if (depth <= 0) return new Vector3(0,0,0);
     if (hRec.hit) {
-        const target = hRec.point.add(hRec.normal).add(Vector3.randomInUnitSphere());
-        return ray_color(new Ray(hRec.point, target.minus(hRec.point)), depth-1).mulN(0.5);
+        //const target = hRec.point.add(hRec.normal).add(Vector3.randomUnitVector());
+        //const target = hRec.point.add(Vector3.randomInHemisphere(hRec.normal));
+        const { attenuation, doScatter, scattered } = hRec.material.scatter(ray, hRec);
+        if(doScatter) return attenuation.mulV(ray_color(scattered, depth-1));
+        return new Vector3(0,0,0);
+        //return ray_color(new Ray(hRec.point, target.minus(hRec.point)), depth-1).mulN(0.5);
         //return hRec.normal.add(new Vector3(1,1,1)).mulN(0.5);
     }
 
-    // if(t > 0.0) {
-    //     const normal = ray.at(t).minus(new Vector3(0,0,-1)).unitVector();
-    //     return new Vector3(normal.x + 1, normal.y + 1, normal.z + 1).mulN(0.5);
-    // }
     const unit_direction = ray.direction.unitVector();
     const tbg = 0.5 * (unit_direction.y + 1.0);
     return new Vector3(1.0,1.0,1.0).mulN(1.0-tbg).add(new Vector3(0.5,0.7,1.0).mulN(tbg));

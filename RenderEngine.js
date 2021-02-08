@@ -9,22 +9,7 @@ const { Worker } = require('worker_threads');
  * @returns Number - render time
  */
 module.exports = async (out) => {
-    // const aspect_ratio = out.width / out.height;
-    // const viewport_height = 2.0;
-    // const viewport_width = aspect_ratio * viewport_height;
-    // const focal_length = 1.0;
-    //
-    // const origin = new Vector3(0,0,0);
-    // const horizontal = new Vector3(viewport_width, 0, 0);
-    // const vertical = new Vector3(0, viewport_height, 0);
-    //
-    // const camera = {
-    //     origin,
-    //     horizontal,
-    //     vertical,
-    //     lower_left_corner: origin.minus(horizontal.divN(2)).minus(vertical.divN(2)).minus(new Vector3(0, 0, focal_length)),
-    // };
-    const camera = new Camera(out.width, out.height, 100);
+    const camera = new Camera(out.width, out.height, 500);
     const start = new Date();
     const pixelRenderChunks = [];
     for(let y = 0; y < out.height; y++) {
@@ -36,7 +21,7 @@ module.exports = async (out) => {
     }
     let chunksFinished = 0;
     initWorkerThreads(32, (chunk) => {
-        out.pushPixelRow(chunk.id, chunk.pixels);
+        out.pushPixelRow(out.height-chunk.id-1, chunk.pixels); // for some reasons it's upside down i think it's because of the png library
         chunksFinished++;
     });
     for(const chunk of pixelRenderChunks) {

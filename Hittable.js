@@ -4,6 +4,7 @@
  * @property {Vector3} [point];
  * @property {Vector3} [normal];
  * @property {Number} [t];
+ * @property {Material} [material]
  * @property {Boolean} [frontFace];
  */
 
@@ -30,7 +31,7 @@ module.exports = class Hittable {
      */
     setFaceNormal(ray, outwardNormal, hitResult) {
         hitResult.frontFace = ray.direction.dot(outwardNormal) < 0;
-        hitResult.normal = hitResult.frontFace ? outwardNormal : -outwardNormal;
+        hitResult.normal = hitResult.frontFace ? outwardNormal : outwardNormal.mulN(-1);
         return hitResult;
     }
 };

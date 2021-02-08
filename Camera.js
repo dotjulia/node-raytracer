@@ -12,7 +12,7 @@ module.exports = class Camera {
         this.horizontal = new Vector3(viewport_width, 0, 0);
         this.vertical = new Vector3(0, viewport_height, 0);
         this.samples = samples;
-        this.maxDepth = 25;
+        this.maxDepth = 10;
         this.lower_left_corner = this.origin.minus(this.horizontal.divN(2)).minus(this.vertical.divN(2)).minus(new Vector3(0, 0, focal_length));
     }
 
