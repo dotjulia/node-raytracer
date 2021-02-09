@@ -48,6 +48,13 @@ module.exports = class Vector3 {
         return this.minus(n.mulN(2).mulN(this.dot(n)));
     }
 
+    refract(n, etaIOverEtaT) {
+        const cos_theta = Math.min(this.mulN(-1).dot(n), 1.0);
+        const rOutPrep = this.add(n.mulN(cos_theta)).mulN(etaIOverEtaT);
+        const rOutParallel = n.mulN(-Math.sqrt(Math.abs(1.0 - rOutPrep.length_squared())));
+        return rOutPrep.add(rOutParallel);
+    }
+
     assignFromObj(obj) {
         this.x = obj.x;
         this.y = obj.y;

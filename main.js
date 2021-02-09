@@ -12,13 +12,11 @@ const main = async () => {
 
     const time = await render(out);
 
-    out.save("test3.png");
+    out.save("test6.png");
     return {err: '', time};
 };
 const measureTime = ( async () => {
     console.log("Starting render!".green);
-    const start = new Date();
-
     const ret = await main();
     if(ret.err) {
         console.log(("Render failed: " + ret).red);

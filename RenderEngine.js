@@ -9,7 +9,7 @@ const { Worker } = require('worker_threads');
  * @returns Number - render time
  */
 module.exports = async (out) => {
-    const camera = new Camera(out.width, out.height, 500);
+    const camera = new Camera(out.width, out.height, 100);
     const start = new Date();
     const pixelRenderChunks = [];
     for(let y = 0; y < out.height; y++) {
@@ -31,7 +31,9 @@ module.exports = async (out) => {
     const finishCondition = () => {
         return chunksFinished >= out.height;
     };
-    finishCondition.toProgressString = () => `${chunksFinished}/${out.height}`;
+    finishCondition.toProgressString = () => `${chunksFinished}/${out.height} Remaining: ${
+        ((((new Date() - start) * (out.height-chunksFinished))/chunksFinished)/1000).toFixed(2)
+    }s`;
     await waitForWorkers(finishCondition, 1000);
 
     terminateWorkerThreads();

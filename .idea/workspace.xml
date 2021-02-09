@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f490b2e5-17a2-4f5b-b671-27397e6ba83a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Lambertian.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Material.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Metal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dielectric.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/Camera.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hittable.js" beforeDir="false" afterPath="$PROJECT_DIR$/Hittable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metal.js" beforeDir="false" afterPath="$PROJECT_DIR$/Metal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RenderEngine.js" beforeDir="false" afterPath="$PROJECT_DIR$/RenderEngine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RenderPixelWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/RenderPixelWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sphere.js" beforeDir="false" afterPath="$PROJECT_DIR$/Sphere.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/World.js" beforeDir="false" afterPath="$PROJECT_DIR$/World.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.png" beforeDir="false" afterPath="$PROJECT_DIR$/test3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vec3.js" beforeDir="false" afterPath="$PROJECT_DIR$/vec3.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +82,8 @@
       <workItem from="1612700344383" duration="4795000" />
       <workItem from="1612705677611" duration="127000" />
       <workItem from="1612718892289" duration="17000" />
-      <workItem from="1612737231082" duration="5969000" />
+      <workItem from="1612737231082" duration="6187000" />
+      <workItem from="1612905709612" duration="2916000" />
     </task>
     <servers />
   </component>
