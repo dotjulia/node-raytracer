@@ -9,7 +9,7 @@ const { Worker } = require('worker_threads');
  * @returns Number - render time
  */
 module.exports = async (out) => {
-    const camera = new Camera(out.width, out.height, 100);
+    const camera = new Camera(out.width, out.height, 200, 90, new Vector3(-2,2,1), new Vector3(0,0,-1), new Vector3(0,1,0));
     const start = new Date();
     const pixelRenderChunks = [];
     for(let y = 0; y < out.height; y++) {
