@@ -1,5 +1,5 @@
 const Material = require('./Material');
-const Ray = require('./Ray');
+const Ray = require('./ray');
 const Vector3 = require('./vec3');
 
 module.exports = class Metal extends Material {
